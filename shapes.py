@@ -44,7 +44,7 @@ class Square(Shape):
 
     self.set([
       [
-        (x in [0, d-1] or y in [0, d-1]) for x in range(d)
+        (max(abs(x-r), abs(y-r)) == r) for x in range(d)
       ] for y in range(d)
     ])
 
@@ -58,7 +58,7 @@ class Diamond(Shape):
 
     self.set([
       [
-        (x in [r+y, r-y, y-r, 3*r-y]) for x in range(d)
+        (abs(x-r) + abs(y-r) == r) for x in range(d)
       ] for y in range(d)
     ])
 
